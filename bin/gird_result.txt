@@ -1,0 +1,20 @@
+[Parallel(n_jobs=1)]: Done  75 out of  75 | elapsed: 11.2min finished
+{'C': 10, 'gamma': 0.001}
+SVC(C=10, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.001, kernel='rbf',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+[[344  52]
+ [ 27 601]]
+
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.87      0.90       396
+           1       0.92      0.96      0.94       628
+
+   micro avg       0.92      0.92      0.92      1024
+   macro avg       0.92      0.91      0.92      1024
+weighted avg       0.92      0.92      0.92      1024
+
+[Finished in 708.3s]
