@@ -1,2 +1,2 @@
-# NanoDTC---MLWS
-NN to predict 
+# NanoDTC_MLWS
+NN to predict bandgap 
