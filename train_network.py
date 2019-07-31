@@ -4,14 +4,14 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import os
-from keras.models import Sequential
-from keras.layers.core import Dense
-from keras.optimizers import Adam
-import seaborn as sns
-from keras.layers import Dropout
+# from keras.models import Sequential
+# from keras.layers.core import Dense
+# from keras.optimizers import Adam
+# import seaborn as sns
+# from keras.layers import Dropout
 
 
-bandgap_dataset = pd.read_csv("bandgap_dataset.csv")
+bandgap_dataset = pd.read_csv("bandgap-example.csv")
 
 _, compositions, y_reg = bandgap_dataset.T.values
 
@@ -37,6 +37,7 @@ y = pd.DataFrame(y_reg)
 
 X = np.asarray(X)
 y = np.asarray(y)
+
 
 from sklearn.model_selection import train_test_split
 
@@ -88,5 +89,5 @@ model.save('model_mse_dropout_normal.h5')
 # print(r2(preds, y_test))
 
 # # sns.jointplot(preds, y_test, kind="reg")
-# # print(r2(preds, y_test))
-# # plt.show()
+# print(r2(preds, y_test))
+# plt.show()
