@@ -4,11 +4,11 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import os
-# from keras.models import Sequential
-# from keras.layers.core import Dense
-# from keras.optimizers import Adam
-# import seaborn as sns
-# from keras.layers import Dropout
+from keras.models import Sequential
+from keras.layers.core import Dense
+from keras.optimizers import Adam
+import seaborn as sns
+from keras.layers import Dropout
 
 
 bandgap_dataset = pd.read_csv("bandgap-example.csv")
@@ -65,9 +65,22 @@ opt = Adam(lr=1e-3, decay=1e-3 / 200)
 model.compile(loss="mean_squared_error", optimizer=opt, metrics=['accuracy'])
 
 
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=1000, batch_size=100)
-model.save('model_mse_dropout_normal.h5')
+H = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=1000, batch_size=100, verbose=1)
+# model.save('model_mse_dropout_normal.h5')
 
+
+plt.style.use("ggplot")
+plt.figure()
+N = 1000
+plt.plot(H.history["loss"], label="train_loss")
+plt.plot(H.history["val_loss"], label="val_loss")
+plt.plot(H.history["acc"], label="train_acc")
+plt.plot(H.history["val_acc"], label="val_acc")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss/Accuracy")
+plt.legend(loc="lower left")
+plt.show()
+plt.savefig(now + "loss_acc.png")
 
 # preds = model.predict(X_test)
 
