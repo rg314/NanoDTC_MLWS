@@ -16,7 +16,7 @@ from keras.layers import Dropout
 
 
 
-bandgap_dataset = pd.read_csv("bandgap-example.csv")
+bandgap_dataset = pd.read_csv("data/bandgap-example.csv")
 
 _, compositions, y_reg = bandgap_dataset.T.values
 

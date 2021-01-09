@@ -11,7 +11,7 @@ import seaborn as sns
 import keras
 from scipy import stats
 
-bandgap_dataset = pd.read_csv("bandgap-example_filter.csv")
+bandgap_dataset = pd.read_csv("data/bandgap-example_filter.csv")
 
 _, compositions, y_reg = bandgap_dataset.T.values
 
@@ -25,7 +25,7 @@ print("The total number of samples is {} of which {}"
       " are conductors and {} have bandgaps".format(N, N_cond, N_gap))
 
 
-X = magpy.core.descriptors(compositions, embedding_file="elem_embedding.json",
+X = magpy.core.descriptors(compositions, embedding_file="embeddings/elem_embedding.json",
                            operations=["wmean", "wstd", "max", "min"])
 
 print(len(X[0]))
